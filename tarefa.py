@@ -1,3 +1,5 @@
+import random
+
 def selection_sort(lista):
     # Percorre toda a lista
     for i in range(len(lista)):
@@ -15,11 +17,16 @@ def save_to_file(lista, filename):
         for item in lista:
             f.write(f"{item}\n")
 
-# Exemplo de uso
-numeros = [64, 25, 12, 22, 11]
+def generate_random_numbers(len, lower_bound, upper_bound):
+    return [random.randint(lower_bound, upper_bound) for _ in range(len)]
 
+# Gera 1000 números aleatórios entre 1 e 1000
+print('gerando lista de números aleatórios')
+numeros = generate_random_numbers(10000, 1, 100000)
+
+# ordena lista de números
 lista_ordenada = selection_sort(numeros)
-print("Lista ordenada:", lista_ordenada)
+print("Lista foi ordenada!")
 
 # Salva a lista ordenada em um arquivo
 save_to_file(lista_ordenada, 'lista_ordenada.txt')
