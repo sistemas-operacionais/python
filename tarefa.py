@@ -10,6 +10,17 @@ def selection_sort(lista):
         lista[i], lista[min_index] = lista[min_index], lista[i]
     return lista
 
+def save_to_file(lista, filename):
+    with open(filename, 'w') as f:
+        for item in lista:
+            f.write(f"{item}\n")
+
 # Exemplo de uso
 numeros = [64, 25, 12, 22, 11]
-print("Lista ordenada:", selection_sort(numeros))
+
+lista_ordenada = selection_sort(numeros)
+print("Lista ordenada:", lista_ordenada)
+
+# Salva a lista ordenada em um arquivo
+save_to_file(lista_ordenada, 'lista_ordenada.txt')
+print("A lista ordenada foi salva no arquivo 'lista_ordenada.txt'.")
